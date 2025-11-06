@@ -8,3 +8,13 @@ jobs:
     steps:
       - name: Action de Teste
         run: echo "Action executada apenas em main e features."
+      - name: Alteração no card
+        uses: actions/github-script@v8
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Adicionando um comentário sobre o PR.'
+            })
