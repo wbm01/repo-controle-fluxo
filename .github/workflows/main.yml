@@ -16,9 +16,8 @@ jobs:
         run: echo "Executando comando na main"
 
   apenas-feature:
-    if: ${{ startsWith(github.ref, 'refs/heads/feature') }}
-    name: Execução em Feature
     runs-on: ubuntu-latest
     steps:
       - name: Executando na feature
+        if: ${{ startsWith(github.ref, 'refs/heads/feature') }}
         run: echo "Execução em Feature"
