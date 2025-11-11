@@ -1,11 +1,6 @@
 name: Workflow Evento
-
 on:
   push:
-    branches:
-      - main
-      - feature
-
 jobs:
   apenas-main:
     if: ${{ github.ref == 'refs/heads/main' }}
