@@ -10,9 +10,9 @@ jobs:
       - name: Executando na main
         run: echo "Executando comando na main"
   apenas-feature:
-    if: ${{ contains(github.ref, 'refs/heads/feature') }}
-    name: Execução em Feature
     runs-on: ubuntu-latest
+    name: Execução em Feature
     steps:
       - name: Executando na feature
+        if: ${{ contains(github.ref, 'refs/heads/feature') }}
         run: echo "Execução em Feature"
