@@ -1,6 +1,11 @@
 name: Workflow Evento
+
 on:
-  push: 
+  push:
+    branches:
+      - main
+      - feature
+
 jobs:
   apenas-main:
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -9,8 +14,9 @@ jobs:
     steps:
       - name: Executando na main
         run: echo "Executando comando na main"
+
   apenas-feature:
-    if: ${{ contains(github.ref, 'refs/heads/feature') }}
+    if: ${{ startsWith(github.ref, 'refs/heads/feature') }}
     name: Execução em Feature
     runs-on: ubuntu-latest
     steps:
